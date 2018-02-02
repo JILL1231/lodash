@@ -11,19 +11,47 @@
  * compact([0, 1, false, 2, '', 3])
  * // => [1, 2, 3]
  */
+/**
+ * 创建一个移除了所有假值的数组。例如：false、null、 0、""、undefined， 以及NaN 都是 “假值”.
+ * @param array 需要处理的数组
+ * @returns {Array}  移除了所有假值的数组
+ */
 function compact(array) {
+  //用来表示返回数组的索引
   let resIndex = 0
+  //新创建一个数组，存放有效数据，也是返回的数组
   const result = []
 
+  //若传入的数组为空，则返回空数组
   if (array == null) {
     return result
   }
 
+  //for...of对传递的数组进行循环,想想，如果用map或while，性能有什么区别呢？为什么？
   for (const value of array) {
+    //将能够通过布尔转化为false的值去除
     if (value) {
       result[resIndex++] = value
     }
   }
+
+  //map实现
+  array.map(function(value){
+    if(value){
+      result.push(value);
+    }
+  })
+
+  //while实现
+  let index = 0,len = array.length;
+  while(index < len){
+    let value = array[index++]
+    if(value){
+      result[resIndex++] = value
+    }
+  }
+
+
   return result
 }
 
