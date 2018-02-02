@@ -28,6 +28,7 @@ function compact(array) {
   }
 
   //for...of对传递的数组进行循环,想想，如果用map或while，性能有什么区别呢？为什么？
+  //for最快，因为它没有任何额外的函数调用栈和上下文
   for (const value of array) {
     //将能够通过布尔转化为false的值去除
     if (value) {
@@ -35,7 +36,8 @@ function compact(array) {
     }
   }
 
-  //map实现
+  //map 最慢，因为它的返回值是一个等长的全新的数组，数组创建和赋值产生的性能开销很大。
+  //map适用：将数组按照某种规则映射为另一个数组
   array.map(function(value){
     if(value){
       result.push(value);
