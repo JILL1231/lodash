@@ -1,4 +1,4 @@
-#baseWhile函数。
+# baseWhile函数。
 
 baseWhile函数是`dropWhile`、`dropRightWhile` 和 `takeWhile` 、`takeRightWhile`这四个函数的基本实现方法。
 
