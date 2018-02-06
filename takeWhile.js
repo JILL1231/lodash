@@ -21,7 +21,16 @@ import baseWhile from './.internal/baseWhile.js'
  * takeWhile(users, ({ active }) => active)
  * // => objects for ['barney', 'fred']
  */
+/**
+ * 从数组的开始提取数组，直到 predicate 返回假值。predicate 会传入三个参数：(value, index, array)
+ * @param array
+ * @param predicate
+ * @returns {Array}
+ */
 function takeWhile(array, predicate) {
+  //array != null && array.length ＝>判断是否传入一个数组且传入的数组长度是否大于0，
+  //若是，则调用baseWhile函数，且传入四个参数：要处理的数组array，判断函数predicate，获取指定元素false，从左到右判断false
+  //否则返回空数组
   return (array != null && array.length)
     ? baseWhile(array, predicate)
     : []
