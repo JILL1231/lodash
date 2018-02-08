@@ -13,6 +13,7 @@
  * isUndefined(null)
  * // => false
  */
+//null 与 undefined 是它们所属类型的唯一一个值。所以判断方法非常方便，只要我们使用恒等比较===
 function isUndefined(value) {
   return value === undefined
 }
